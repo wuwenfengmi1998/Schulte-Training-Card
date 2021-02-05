@@ -17,15 +17,13 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     main.cpp \
-    mainwindow.cpp \
-    my.cpp
+    widget.cpp
 
 HEADERS += \
-    mainwindow.h \
-    my.h
+    widget.h
 
 FORMS += \
-    mainwindow.ui
+    widget.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
