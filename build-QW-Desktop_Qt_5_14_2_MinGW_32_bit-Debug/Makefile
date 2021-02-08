@@ -247,6 +247,7 @@ Makefile: ../QW/QW.pro C:/Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/win32-g++/qmake.
 		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/features/qt_config.prf \
 		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/win32-g++/qmake.conf \
 		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/features/exclusive_builds.prf \
 		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/features/toolchain.prf \
 		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/features/default_pre.prf \
@@ -275,7 +276,6 @@ Makefile: ../QW/QW.pro C:/Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/win32-g++/qmake.
 		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/lib/Qt5Gui.prl \
 		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/lib/Qt5Core.prl \
 		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/lib/qtmain.prl \
-		.qmake.stash \
 		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/features/build_pass.prf
 	$(QMAKE) -o Makefile ..\QW\QW.pro -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug"
 C:/Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/features/spec_pre.prf:
@@ -455,6 +455,7 @@ C:/Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/features/qt_functions.prf:
 C:/Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/features/qt_config.prf:
 C:/Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/win32-g++/qmake.conf:
 C:/Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/features/spec_post.prf:
+.qmake.stash:
 C:/Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/features/exclusive_builds.prf:
 C:/Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/features/toolchain.prf:
 C:/Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/features/default_pre.prf:
@@ -483,7 +484,6 @@ C:/Qt/Qt5.14.2/5.14.2/mingw73_32/lib/Qt5Widgets.prl:
 C:/Qt/Qt5.14.2/5.14.2/mingw73_32/lib/Qt5Gui.prl:
 C:/Qt/Qt5.14.2/5.14.2/mingw73_32/lib/Qt5Core.prl:
 C:/Qt/Qt5.14.2/5.14.2/mingw73_32/lib/qtmain.prl:
-.qmake.stash:
 C:/Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/features/build_pass.prf:
 qmake: FORCE
 	@$(QMAKE) -o Makefile ..\QW\QW.pro -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug"
