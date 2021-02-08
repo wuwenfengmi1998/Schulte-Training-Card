@@ -1,15 +1,16 @@
 #include "workthread.h"
 #include <time.h>
-
+#include <QDebug>
 care car[5][5];
-int car_rand_buff[26];
-int car_rand_int=0;
-int car_rand=0;
-int while_buff=0;
+struct touch t;
 
-void WorkThread::run()
+void car_init()
 {
-    srand(time(NULL));
+
+    int car_rand_buff[26];
+    int car_rand_int=0;
+    int car_rand=0;
+    int while_buff=0;
     for(int y=0;y<5;y++)
     {
         for(int x=0;x<5;x++)
@@ -35,8 +36,37 @@ void WorkThread::run()
         }
 
     }
-    while (true)
+
+}
+
+int chack_car(int y,int x)
+{
+    int a,b,c=0;
+    a=(x/car_size);
+    b=((y/car_size)*5);
+    c=a+b+1;
+   return c;
+}
+
+void w()
+{
+    int t_car_flag=0;
+    srand(time(NULL));
+    car_init();
+    while(1)
     {
+        if(t.flag)
+        {
+            t.flag=0;
+            t_car_flag=chack_car(t.y,t.x);
+            qDebug()<<t.y<<"  "<<t.x<<"  "<<t_car_flag;
+        }else{t_car_flag=0;}
 
     }
+}
+
+void WorkThread::run()
+{
+
+    w();
 }

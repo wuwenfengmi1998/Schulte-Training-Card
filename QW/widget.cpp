@@ -9,6 +9,7 @@
 
 
 extern care car[5][5];
+extern struct touch t;
 
 Widget::Widget(QWidget *parent)
     : QWidget(parent)
@@ -75,7 +76,7 @@ void Widget::paintEvent(QPaintEvent *)
 
 
 
-#define car_size 110
+
     for(int y=0;y<5;y++)
     {
         for(int x=0;x<5;x++)
@@ -101,7 +102,9 @@ void Widget::mousePressEvent(QMouseEvent *event)
 
     if (event->button() == Qt::LeftButton)
     {
-            qDebug() << event->x();
+            t.flag=1;
+            t.x=event->x();
+            t.y=event->y();
 
     }
 

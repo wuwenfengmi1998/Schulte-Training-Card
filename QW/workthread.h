@@ -4,6 +4,8 @@
 #include <QWidget>
 #include <QThread>
 
+#define car_size 110
+
 class WorkThread : public QThread
 {
 
@@ -18,6 +20,14 @@ struct care
 {
     int num;
     long color;
+
+};
+
+struct touch
+{
+    char flag;
+    int y;
+    int x;
 
 };
 
