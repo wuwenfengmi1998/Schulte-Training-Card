@@ -4,6 +4,7 @@
 #include <QPen>
 #include <QBrush>
 #include <QTimer>
+#include <QDebug>
 #include "WorkThread.h"
 
 
@@ -95,6 +96,17 @@ void Widget::paintEvent(QPaintEvent *)
 
 }
 
+void Widget::mousePressEvent(QMouseEvent *event)
+{
+
+    if (event->button() == Qt::LeftButton)
+    {
+            qDebug() << event->x();
+
+    }
+
+
+}
 void Widget::mainrun_timeout()
 {
     Widget::update();
