@@ -15,6 +15,7 @@ public:
     Widget(QWidget *parent = nullptr);
     ~Widget();
     void mainrun_timeout();
+    void car_init();
 protected:
     //重写绘图事件  虚函数
     //如果在窗口绘图，必须放在绘图事件里实现

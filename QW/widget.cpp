@@ -9,7 +9,10 @@
 
 care car[5][5];
 int car_num=0;
-void car_init()
+QTimer *mainrun;
+int h=0,m=0,s=0;
+char time_louck=0;
+void Widget::car_init()
 {
 
     int car_rand_buff[26];
@@ -17,6 +20,15 @@ void car_init()
     int car_rand=0;
     int while_buff=0;
     car_num=0;
+    h=0;m=0;s=0;
+    time_louck=0;
+    ui->label->setText(QString("%1:%2:%3").arg(h,2,10,QLatin1Char('0')).arg(m,2,10,QLatin1Char('0')).arg(s,2,10,QLatin1Char('0')));
+
+    if(mainrun!=NULL)
+    {
+         mainrun->stop();
+    }
+
     for(int y=0;y<5;y++)
     {
         for(int x=0;x<5;x++)
@@ -51,16 +63,16 @@ Widget::Widget(QWidget *parent)
     , ui(new Ui::Widget)
 {
     ui->setupUi(this);
-    //QTimer *mainrun;
+
 
     srand(time(NULL));
     car_init();
 
-    /*
+
     mainrun = new QTimer(this);
     connect(mainrun,&QTimer::timeout,this,&Widget::mainrun_timeout);
-    mainrun->start(1);
-  */
+
+
 }
 
 Widget::~Widget()
@@ -121,17 +133,28 @@ void Widget::mousePressEvent(QMouseEvent *event)
 
         }else
         {
+            if(time_louck==0)
+            {
+                mainrun->start(1000);
+                time_louck=1;
+            }
+
            y=(event->y()/car_size);
            x=(event->x()/car_size);
            if(car[y][x].num==car_num+1)
            {
                car[y][x].color=0x00db00;
                car_num++;
+               if(car_num>=25)
+               {
+                   mainrun->stop();
+               }
            }else
            {
                 if(car[y][x].color==0xffffff)
                 {
                     car[y][x].color=0xea0000;
+                    mainrun->stop();
                 }
 
            }
@@ -146,6 +169,18 @@ Widget::update();
 void Widget::mainrun_timeout()
 {
     //Widget::update();
+    s++;
+    if(s==60)
+    {
+        m++;
+        if(m==60)
+        {
+            h++;
+
+        }
+
+    }
+    ui->label->setText(QString("%1:%2:%3").arg(h,2,10,QLatin1Char('0')).arg(m,2,10,QLatin1Char('0')).arg(s,2,10,QLatin1Char('0')));
 }
 
 void Widget::on_pushButton_clicked()
